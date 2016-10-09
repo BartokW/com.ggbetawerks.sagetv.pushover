@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SageTVPlugin>
-    <Name>PushBullet notifications for SageTV</Name>
-    <Identifier>sagex.plugin.pushbullet</Identifier>
+    <Name>Pushover notifications for SageTV</Name>
+    <Identifier>com.ggbetawerks.sagetv.pushover</Identifier>
     <Description>Can send SageTV System Messages to your Desktop and Mobile Device.  Requires a PushBullet account.</Description>
-    <Author>stuckless</Author>
-    <CreationDate>2015.12.18</CreationDate>
-    <ModificationDate>2015.12.18</ModificationDate>
-    <Version>1.1</Version>
-    <ResourcePath>sagex.plugin.pushbullet</ResourcePath>
-    <Webpage><![CDATA[https://github.com/stuckless/sagetv-phoenix-core]]></Webpage>
+    <Author>Jonathan Warrington</Author>
+    <CreationDate>2016.10.08</CreationDate>
+    <ModificationDate>2016.10.09</ModificationDate>
+    <Version>1.0</Version>
+    <ResourcePath>com.ggbetawerks.sagetv.pushover</ResourcePath>
+    <Webpage><![CDATA[https://github.com/BartokW/com.ggbetawerks.sagetv.pushover]]></Webpage>
 
     <Dependency>
         <Core/>
@@ -24,11 +24,11 @@
 
     <Package>
         <PackageType>JAR</PackageType>
-        <Location>https://dl.bintray.com/opensagetv/sagetv-plugins/sagex.plugin.pushbullet/sagex.plugin.pushbullet-1.1.zip</Location>
-        <MD5>6d8b013c777561651cebc6eb0e220446</MD5>
+        <Location>https://dl.bintray.com/opensagetv/sagetv-plugins/com.ggbetawerks.sagetv.pushover/com.ggbetawerks.sagetv.pushover-1.0.zip</Location>
+        <MD5>54dd7ccb50f0567c1172606d7da170c8</MD5>
     </Package>
 
-    <ImplementationClass>sagex.plugin.pushbullet.PushBulletPlugin</ImplementationClass>
+    <ImplementationClass>com.ggbetawerks.sagetv.pushover.PushoverPlugin</ImplementationClass>
 
     <ReleaseNotes>
     </ReleaseNotes>

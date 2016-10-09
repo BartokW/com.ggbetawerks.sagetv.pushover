@@ -9,7 +9,7 @@ apply plugin: 'idea'
 ext {
     plugin_name = "com.ggbetawerks.sagetv.pushover"
     plugin_desc = "Pushover notifications for SageTV"
-    plugin_longdesc = "Can send SageTV System Messages to your Desktop and Mobile Device.  Requires a PushBullet account."
+    plugin_longdesc = "Can send SageTV System Messages to your Desktop and Mobile Device.  Requires a Pushover account."
 }
 
 archivesBaseName = "${plugin_name}"
@@ -29,10 +29,10 @@ repositories {
     mavenCentral()
     jcenter()
     maven {
-        url  "http://dl.bintray.com/opensagetv/maven"
+        url "http://dl.bintray.com/opensagetv/maven"
     }
     maven {
-        url  "http://dl.bintray.com/stuckless/sagetvphoenix"
+        url "http://dl.bintray.com/stuckless/sagetvphoenix"
     }
 }
 
@@ -187,7 +187,7 @@ bintray {
     pkg {
         repo = 'sagetv-plugins'
         name = "${plugin_name}"
-        userOrg = 'opensagetv'
+        userOrg = 'bartokw'
         desc = "${plugin_desc}"
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/BartokW/com.ggbetawerks.sagetv.pushover'

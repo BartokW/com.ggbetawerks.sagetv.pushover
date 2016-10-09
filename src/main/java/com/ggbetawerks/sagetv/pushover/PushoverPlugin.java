@@ -1,9 +1,7 @@
 package com.ggbetawerks.sagetv.pushover;
 
-import sage.MediaFile;
 import sage.SageTVPlugin;
 import sage.SageTVPluginRegistry;
-import sage.api.MediaFileAPI;
 import sage.msg.SystemMessage;
 import sage.plugin.PluginEventManager;
 import sagex.plugin.*;
@@ -21,9 +19,10 @@ import static sage.msg.SystemMessage.*;
  * Created by seans on 18/12/15.
  */
 public class PushoverPlugin extends AbstractPlugin {
-    public static final String PUSHBULLET_URL = "https://api.pushbullet.com/v2/pushes";
-    public static final String PROP_BASE = "sagex/plugin/pushbullet/";
-    public static final String PROP_API_KEY = PROP_BASE + "apikey";
+    public static final String PUSHOVER_URL = "https://api.pushover.net/1/messages.json";
+    public static final String PROP_BASE = "com/ggbetawerks/plugin/pushover/";
+    public static final String PROP_USER_KEY = PROP_BASE + "userkey";
+    public static final String PROP_APP_TOKEN = PROP_BASE + "apptoken";
     public static final String PROP_ENABLE_ALL = PROP_BASE + "enableAll";
     public static final String PROP_TEST_SEND = PROP_BASE + "testSend";
 
@@ -35,7 +34,8 @@ public class PushoverPlugin extends AbstractPlugin {
     public void start() {
         super.start();
 
-        addProperty(SageTVPlugin.CONFIG_TEXT, PROP_API_KEY, "", "API KEY", "PushBullet API Key");
+        addProperty(SageTVPlugin.CONFIG_TEXT, PROP_USER_KEY, "", "USER KEY", "Pushover User Key");
+        addProperty(SageTVPlugin.CONFIG_TEXT, PROP_APP_TOKEN, "", "APP TOKEN", "Pushover Application API Token");
         addProperty(SageTVPlugin.CONFIG_BOOL, PROP_ENABLE_ALL, "false", "Enable All System Events", "If enabled, then ALL System Events will be pushed");
 
         int messages[] = new int[] {
@@ -113,17 +113,17 @@ public class PushoverPlugin extends AbstractPlugin {
             if (!canSendNotification(msg)) {
                 return;
             }
-
+/*
             JSONObject pb = new JSONObject();
             pb.put("type","note");
             pb.put("title", msg.getMessageText());
-            pb.put("body", formatMessageBody(msg));
+            pb.put("message", formatMessageBody(msg));*/
 
-            sendMessage(pb);
-        } catch (JSONException e) {
+            sendMessage(msg.getMessageText(), formatMessageBody(msg));
+        } /*catch (JSONException e) {
             log.error("JSON Error", e);
-        } catch (IOException e) {
-            log.error("Failed to use PushBullet", e);
+        } */catch (IOException e) {
+            log.error("Failed to use Pushover", e);
         } catch (Throwable t) {
             log.error("Erorr", t);
         }
@@ -135,11 +135,15 @@ public class PushoverPlugin extends AbstractPlugin {
 
     }
 
-    void sendMessage(JSONObject pb) throws IOException {
-        RequestBuilder builder = new RequestBuilder(PUSHBULLET_URL);
-        builder.setContentType("application/json");
-        builder.addHeader("Authorization", "Bearer " + getApiKey());
-        builder.setBody(pb.toString());
+    void sendMessage(String title, String message) throws IOException {
+        RequestBuilder builder = new RequestBuilder(PUSHOVER_URL);
+        builder.setContentType("application/x-www-form-urlencoded");
+        //builder.addHeader("Authorization", "Bearer " + getUserKey());
+        //builder.setBody(pb.toString());
+        builder.addParameter("token", getAppToken());
+        builder.addParameter("user", getUserKey());
+        builder.addParameter("title", title);
+        builder.addParameter("title", message);
         builder.postRequest();
     }
 
@@ -150,8 +154,11 @@ public class PushoverPlugin extends AbstractPlugin {
         return getConfigBoolValue(PROP_BASE + String.valueOf(msg.getType()));
     }
 
-    String getApiKey() {
-        return getConfigValue(PROP_API_KEY);
+    String getUserKey() {
+        return getConfigValue(PROP_USER_KEY);
+    }
+    String getAppToken() {
+        return getConfigValue(PROP_APP_TOKEN);
     }
 
     String formatMessageBody(SystemMessage msg) {

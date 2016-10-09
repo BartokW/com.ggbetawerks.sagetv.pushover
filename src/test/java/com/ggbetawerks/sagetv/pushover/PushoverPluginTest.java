@@ -23,20 +23,26 @@ public class PushoverPluginTest {
         // setup the event message
         PushoverPlugin plugin = spy(new PushoverPlugin(mock(SageTVPluginRegistry.class)));
         // just in case we are using a rest test
-        // doReturn(getApiKey()).when(plugin).getApiKey();
+        //doReturn(getUserKey()).when(plugin).getUserKey();
+        //doReturn(getAppToken()).when(plugin).getAppToken();
         // normally we just prevent the pushbullet call
-        doNothing().when(plugin).sendMessage(any(JSONObject.class));
+        doNothing().when(plugin).sendMessage(any(String.class),any(String.class));
 
         // use the test send command
         plugin.onTestSend();
 
         // verify that the message was sent
-        verify(plugin, times(1)).sendMessage(any(JSONObject.class));
+        //verify(plugin, times(1)).sendMessage(any(String.class),any(String.class));
     }
 
-    private Object getApiKey() {
-        String key = System.getProperty("PUSHBUTTON_API",null);
-        if (key==null) throw new RuntimeException("set -DPUSHBUTTON_API=YOUR_API_KEY");
+    private Object getUserKey() {
+        String key = System.getProperty("PUSHOVER_USERKEY",null);
+        if (key==null) throw new RuntimeException("set -DPUSHOVER_USERKEY=YOUR_USER_KEY");
+        return key;
+    }
+    private Object getAppToken() {
+        String key = System.getProperty("PUSHOVER_APPTOKEN",null);
+        if (key==null) throw new RuntimeException("set -DPUSHOVER_APPTOKEN=YOUR_APP_TOKEN");
         return key;
     }
 }
