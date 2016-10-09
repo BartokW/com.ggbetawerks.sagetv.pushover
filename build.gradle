@@ -7,14 +7,14 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 ext {
-    plugin_name = "sagex.plugin.pushbullet"
-    plugin_desc = "PushBullet notifications for SageTV"
+    plugin_name = "com.ggbetawerks.sagetv.pushover"
+    plugin_desc = "Pushover notifications for SageTV"
     plugin_longdesc = "Can send SageTV System Messages to your Desktop and Mobile Device.  Requires a PushBullet account."
 }
 
 archivesBaseName = "${plugin_name}"
-group 'sagex.plugins'
-version '1.1'
+group 'com.ggbetawerks.sagetv'
+version '1.0'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -190,7 +190,7 @@ bintray {
         userOrg = 'opensagetv'
         desc = "${plugin_desc}"
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/stuckless/sagetv-phoenix-core'
+        vcsUrl = 'https://github.com/BartokW/com.ggbetawerks.sagetv.pushover'
         labels = ['sagetv', 'sagetv-plugin']
         publicDownloadNumbers = true
         //attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes

@@ -1,4 +1,4 @@
-package sagex.plugin.pushbullet;
+package com.ggbetawerks.sagetv.pushover;
 
 import sage.MediaFile;
 import sage.SageTVPlugin;
@@ -20,14 +20,14 @@ import static sage.msg.SystemMessage.*;
 /**
  * Created by seans on 18/12/15.
  */
-public class PushBulletPlugin extends AbstractPlugin {
+public class PushoverPlugin extends AbstractPlugin {
     public static final String PUSHBULLET_URL = "https://api.pushbullet.com/v2/pushes";
     public static final String PROP_BASE = "sagex/plugin/pushbullet/";
     public static final String PROP_API_KEY = PROP_BASE + "apikey";
     public static final String PROP_ENABLE_ALL = PROP_BASE + "enableAll";
     public static final String PROP_TEST_SEND = PROP_BASE + "testSend";
 
-    public PushBulletPlugin(SageTVPluginRegistry registry) {
+    public PushoverPlugin(SageTVPluginRegistry registry) {
         super(registry);
     }
 

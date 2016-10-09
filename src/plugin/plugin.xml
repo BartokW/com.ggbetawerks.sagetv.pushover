@@ -3,12 +3,12 @@
     <Name>@@plugin-desc@@</Name>
     <Identifier>@@plugin-name@@</Identifier>
     <Description>@@plugin-longdesc@@</Description>
-    <Author>stuckless</Author>
-    <CreationDate>2015.12.18</CreationDate>
+    <Author>Jonathan Warrington</Author>
+    <CreationDate>2016.10.08</CreationDate>
     <ModificationDate>@@last-modified@@</ModificationDate>
     <Version>@@version@@</Version>
     <ResourcePath>@@plugin-name@@</ResourcePath>
-    <Webpage><![CDATA[https://github.com/stuckless/sagetv-phoenix-core]]></Webpage>
+    <Webpage><![CDATA[https://github.com/BartokW/com.ggbetawerks.sagetv.pushover]]></Webpage>
 
     <Dependency>
         <Core/>
@@ -28,7 +28,7 @@
         <MD5>@@jar-checksum@@</MD5>
     </Package>
 
-    <ImplementationClass>sagex.plugin.pushbullet.PushBulletPlugin</ImplementationClass>
+    <ImplementationClass>com.ggbetawerks.sagetv.pushover.PushoverPlugin</ImplementationClass>
 
     <ReleaseNotes>
     </ReleaseNotes>

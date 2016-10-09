@@ -1,4 +1,4 @@
-package sagex.plugin.pushbullet;
+package com.ggbetawerks.sagetv.pushover;
 
 import org.junit.Test;
 import sage.SageTVPluginRegistry;
@@ -8,24 +8,20 @@ import sagex.plugin.SageEvents;
 import sagex.remote.json.JSONObject;
 import sagex.util.LogProvider;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-
 import static org.mockito.Mockito.*;
 
 /**
  * Created by seans on 18/12/15.
  */
-public class PushBulletPluginTest {
+public class PushoverPluginTest {
 
     @Test
     public void testOnSystemMessage() throws Exception {
         LogProvider.useSystemOut();
-        LogProvider.getLogger(PushBulletPlugin.class).debug("Logging Initialized");
+        LogProvider.getLogger(PushoverPlugin.class).debug("Logging Initialized");
 
         // setup the event message
-        PushBulletPlugin plugin = spy(new PushBulletPlugin(mock(SageTVPluginRegistry.class)));
+        PushoverPlugin plugin = spy(new PushoverPlugin(mock(SageTVPluginRegistry.class)));
         // just in case we are using a rest test
         // doReturn(getApiKey()).when(plugin).getApiKey();
         // normally we just prevent the pushbullet call

@@ -1,4 +1,4 @@
-package sagex.plugin.pushbullet;
+package com.ggbetawerks.sagetv.pushover;
 
 import sagex.util.ILog;
 import sagex.util.LogProvider;
