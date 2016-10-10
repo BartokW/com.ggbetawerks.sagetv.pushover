@@ -17,6 +17,7 @@ import static sage.msg.SystemMessage.*;
 
 /**
  * Created by seans on 18/12/15.
+ * Modified by jonw on 2016-10-08.
  */
 public class PushoverPlugin extends AbstractPlugin {
     public static final String PUSHOVER_URL = "https://api.pushover.net/1/messages.json";
@@ -143,7 +144,7 @@ public class PushoverPlugin extends AbstractPlugin {
         builder.addParameter("token", getAppToken());
         builder.addParameter("user", getUserKey());
         builder.addParameter("title", title);
-        builder.addParameter("title", message);
+        builder.addParameter("message", message);
         builder.postRequest();
     }
 

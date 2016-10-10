@@ -24,7 +24,7 @@
 
     <Package>
         <PackageType>JAR</PackageType>
-        <Location>https://dl.bintray.com/opensagetv/sagetv-plugins/@@plugin-name@@/@@plugin-name@@-@@version@@.zip</Location>
+        <Location>https://dl.bintray.com/bartokw/sagetv-plugins/@@plugin-name@@/@@plugin-name@@-@@version@@.zip</Location>
         <MD5>@@jar-checksum@@</MD5>
     </Package>
 
