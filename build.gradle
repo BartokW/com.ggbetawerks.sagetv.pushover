@@ -1,10 +1,11 @@
 plugins {
-    id "com.jfrog.bintray" version "1.4"
+    id "com.jfrog.bintray" version "1.7.1"
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'com.jfrog.bintray'
 
 ext {
     plugin_name = "com.ggbetawerks.sagetv.pushover"
@@ -195,10 +196,11 @@ bintray {
         publicDownloadNumbers = true
         //attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
         version {
-            name = "${version}"
+            name = "${project.version}"
             desc = "${plugin_desc}"
-            vcsTag = "${version}"
-            //attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+            vcsTag = "${project.version}"
+            released  = new Date()
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
 }
